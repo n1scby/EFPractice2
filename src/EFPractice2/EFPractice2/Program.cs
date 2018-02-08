@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BlogLib;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
@@ -14,25 +15,25 @@ namespace EFPractice2
             //    Rating = 4
             //};
 
-            using (var db = new BloggingContext())
-            {
-                var myBlog = db.Blogs.Include(b => b.Posts).FirstOrDefault(b => b.BlogId == 1);
+            //using (var db = new BloggingContext())
+            //{
+            //    var myBlog = db.Blogs.Include(b => b.Posts).FirstOrDefault(b => b.BlogId == 1);
 
-                for (int i = 0; i < 10; i++)
-                {
-                    var myPost = new Post
-                    {
-                        Blog = myBlog,
-                        Title = $"Post {i}",
-                        BlogId = myBlog.BlogId,
-                        Content = $"<h1>The Second Post!</h1><p>This is post {i}</p>"
-                    };
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        var myPost = new Post
+            //        {
+            //            Blog = myBlog,
+            //            Title = $"Post {i}",
+            //            BlogId = myBlog.BlogId,
+            //            Content = $"<h1>The Second Post!</h1><p>This is post {i}</p>"
+            //        };
 
-                    // db.Blogs.Add(myBlog);
-                    db.Posts.Add(myPost);
-                }
-                db.SaveChanges();
-            }
+            //        // db.Blogs.Add(myBlog);
+            //        db.Posts.Add(myPost);
+            //    }
+            //    db.SaveChanges();
+           // }
 
                 Console.WriteLine("Hello World!");
         }
